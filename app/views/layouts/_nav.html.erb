@@ -1,12 +1,13 @@
-<nav class="navbar navbar-expand-md navbar-light fixed-top border-bottom">
-  <a class="navbar-brand" href="#">My Blog App</a>
+<nav class="navbar navbar-expand-md navbar-light fixed-top bg-white border-bottom">
+  <%= link_to 'My Blog App', root_path, class: 'navbar-brand' %>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarCollapse">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">My Posts</a>
+        <%= link_to 'My Posts', posts_path, class: 'nav-link' %>
       </li>
     </ul>
     <ul class="navbar-nav">
