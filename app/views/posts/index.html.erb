@@ -5,8 +5,10 @@
       <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
       <div class="card-body">
         <h5 class="card-title"><td><%= link_to post.title, post %></td></h5>
-        <p class="small"><%= post.updated_at.strftime("%b %e, %l:%M %p") %></p>
-        <p class="card-text text-truncate"><%= post.body %></p>
+        <p class="text-muted small"><%= post.updated_at.strftime("%b %e, %l:%M %p") %></p>
+        <p class="card-text text-truncate text-dark">
+          <%= post.body %>
+        </p>
       </div>
     </div>
   <% end %>
