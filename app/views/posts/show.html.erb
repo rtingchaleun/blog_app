@@ -3,7 +3,6 @@
   <%= link_to 'Edit', edit_post_path(@post) %> |
   <%= link_to 'Delete', @post, method: :delete, data: { confirm: 'Are you sure?' } %>
 
-
   <div class="jumbotron">
     <h1 class="text-dark"><%= @post.title %></h1>
 
@@ -12,3 +11,28 @@
     </p>
   </div>
 </main>
+
+<section class="container">
+  <div class="row">
+    <div class="col-9">
+      <%= render 'comments/form' %>
+    </div>
+  </div>
+  <h2><%= @post.comments.count %> Comments</h2>
+  <div class="row">
+    <div class="col-9">
+      <% @post.comments.select(&:persisted?).reverse.each do |comment| %>
+        <div class="card mt-3">
+          <!-- <div class="card-header">
+            Featured
+          </div> -->
+          <div class="card-body">
+            <p class="card-text small text-muted"><%= time_ago_in_words(comment.created_at) %> ago</p>
+            <p class="card-text"><%= comment.body %></p>
+            <%= link_to 'Delete', [comment.post, comment], class:'btn btn-primary', method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

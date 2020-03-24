@@ -1,0 +1,10 @@
+<div class="card mt-3">
+  <!-- <div class="card-header">
+    Featured
+  </div> -->
+  <div class="card-body">
+    <p class="card-text small text-muted"><%= time_ago_in_words(comment.created_at) %> ago</p>
+    <p class="card-text"><%= comment.body %></p>
+    <a href="#" class="btn btn-primary">Delete</a>
+  </div>
+</div>
