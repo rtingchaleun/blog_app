@@ -5,7 +5,8 @@
 
   <div class="jumbotron">
     <h1 class="text-dark"><%= @post.title %></h1>
-    <p class="small text-muted">Last updated: <%= @post.updated_at.strftime("%b %e, %l:%M %p") %></p>
+    <p class="text-muted small">By <%= @post.user.email %></p>
+    <p class="small text-muted">Last updated: <%= @post.updated_at.strftime("%b %e, %l:%M %p") %> | <%= @post.views %> Views</p>
     <p class="text-dark">
       <%= @post.body %>
     </p>
