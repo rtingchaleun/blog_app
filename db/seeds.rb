@@ -6,10 +6,26 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# Seed database with 10 posts
+# Create posts
 20.times do
   Post.create(
     title: Faker::Book.title,
     body: Faker::Lorem.paragraphs(10),
+  )
+end
+
+# Create admin
+User.create(
+  email: Faker::Internet.email,
+  password: 'password',
+  admin: true,
+)
+
+# Create users
+20.times do
+  User.create(
+    email: Faker::Internet.email,
+    password: 'password',
+    admin: false,
   )
 end

@@ -15,7 +15,11 @@
         <%= link_to 'New Post', new_post_path, class: 'btn' %>
       </li>
       <li class="nav-item">
-        <a class="btn btn-outline-secondary" href="#">Login</a>
+        <% if user_signed_in?  %>
+          <%= link_to 'Log out', destroy_user_session_path, class: 'btn btn-outline-secondary', method: :delete %>
+        <% else %>
+          <%= link_to 'Log in', new_user_session_path, class: 'btn btn-outline-secondary' %>
+        <% end %>
       </li>
     </ul>
   </div>
