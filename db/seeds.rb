@@ -16,7 +16,7 @@ end
 
 # Create admin
 User.create(
-  email: Faker::Internet.email,
+  email: 'ronald.tingchaleun@gmail.com',
   password: 'password',
   admin: true,
 )

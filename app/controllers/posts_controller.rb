@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   def index
     console
     @posts = Post.all
+    @users = User.all
   end
 
   # GET /posts/1
