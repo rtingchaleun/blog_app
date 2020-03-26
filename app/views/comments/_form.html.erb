@@ -2,7 +2,6 @@
   <% if @post.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@post.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
       <ul>
         <% @post.errors.full_messages.each do |message| %>
           <li><%= message %></li>
@@ -12,7 +11,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= form.label(:body, 'Comment') %>
+    <%= form.label(:body, "Comment as #{current_user.email}") %>
     <%= form.text_area(:body, class: 'form-control', rows: 3) %>
   </div>
 
