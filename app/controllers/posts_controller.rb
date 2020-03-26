@@ -13,12 +13,13 @@ class PostsController < ApplicationController
   # GET /posts/1.json
    def show
     console
-    @post.views = @post.views + 1
-    @post.save
+    # @post.views = @post.views + 1
+    # @post.save
   end
 
   # GET /posts/new
   def new
+    console
     @post = Post.new
   end
 

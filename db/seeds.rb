@@ -26,7 +26,7 @@ end
 20.times do
   Post.create(
     title: Faker::Book.title,
-    body: Faker::Lorem.paragraphs(10),
+    body: Faker::Lorem.sentence,
     views: 0,
     user_id: 1,
   )
@@ -35,7 +35,7 @@ end
 # Create comments
 20.times do
   Comment.create(
-    body: Faker::Lorem.paragraphs(1),
+    body: Faker::Lorem.sentence,
     post_id: 1,
   )
 end
