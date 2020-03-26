@@ -9,6 +9,11 @@ class PostsController < ApplicationController
     @users = User.all
   end
 
+  def my_posts
+    console
+    @posts = Post.where(user_id: current_user.id)
+  end
+
   # GET /posts/1
   # GET /posts/1.json
    def show

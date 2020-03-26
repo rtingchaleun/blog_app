@@ -23,20 +23,26 @@ User.create(
 end
 
 # Create posts
-20.times do
-  Post.create(
-    title: Faker::Book.title,
-    body: Faker::Lorem.sentence,
-    views: 0,
-    user_id: 1,
-  )
+users = User.all
+users.each do |user|
+  10.times do
+    Post.create(
+      title: Faker::Book.title,
+      body: Faker::Lorem.sentence,
+      views: 0,
+      user_id: user.id,
+    )
+  end
 end
 
 # Create comments
-20.times do
-  Comment.create(
-    body: Faker::Lorem.sentence,
-    post_id: 1,
-    user_id: 1,
-  )
+posts = Post.all
+posts.each do |user|
+  users.each do |post|
+    Comment.create(
+      body: Faker::Lorem.sentence,
+      post_id: post.id,
+      user_id: user.id,
+    )
+  end
 end
