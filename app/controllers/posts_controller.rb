@@ -18,8 +18,7 @@ class PostsController < ApplicationController
   # GET /posts/1.json
    def show
     console
-    # @post.views = @post.views + 1
-    # @post.save
+    @post.update(views: @post.views + 1)
   end
 
   # GET /posts/new
@@ -81,6 +80,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body, :views)
+      params.require(:post).permit(:title, :body, :views, :banner)
     end
 end
