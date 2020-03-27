@@ -14,7 +14,7 @@ User.create(
 )
 
 # Create users
-20.times do
+4.times do
   User.create(
     email: Faker::Internet.email,
     password: 'password',
@@ -25,7 +25,7 @@ end
 # Create posts
 users = User.all
 users.each do |user|
-  10.times do
+  5.times do
     Post.create(
       title: Faker::Book.title,
       body: Faker::Lorem.sentence,
@@ -37,8 +37,8 @@ end
 
 # Create comments
 posts = Post.all
-posts.each do |user|
-  users.each do |post|
+posts.each do |post|
+  users.each do |user|
     Comment.create(
       body: Faker::Lorem.sentence,
       post_id: post.id,

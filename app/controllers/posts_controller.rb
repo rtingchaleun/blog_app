@@ -5,6 +5,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     console
+    Hirb.enable
     @posts = Post.all
     @users = User.all
   end
