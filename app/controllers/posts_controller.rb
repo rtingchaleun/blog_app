@@ -4,27 +4,22 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    console
-    Hirb.enable
     @posts = Post.all
     @users = User.all
   end
 
   def my_posts
-    console
     @posts = Post.where(user_id: current_user.id)
   end
 
   # GET /posts/1
   # GET /posts/1.json
    def show
-    console
     @post.update(views: @post.views + 1)
   end
 
   # GET /posts/new
   def new
-    console
     @post = Post.new
   end
 
