@@ -22,13 +22,24 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# For user authentication and admin authorization
 gem 'devise'
+
+# For seeding the database
 gem 'faker'
+
+# For processing images
 gem 'image_processing'
+
+# For displaying data tables nicely in IRB
 gem 'hirb'
 
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+# For downloading and saving images from a webpage
+gem 'nokogiri'
+gem 'httparty'
+
+# For debugging
+gem 'pry'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false

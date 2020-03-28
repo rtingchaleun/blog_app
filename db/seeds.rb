@@ -25,13 +25,20 @@ end
 # Create posts
 users = User.all
 users.each do |user|
-  5.times do
-    Post.create(
-      title: Faker::Book.title,
-      body: Faker::Lorem.sentence,
-      views: 0,
-      user_id: user.id,
-    )
+  2.times do
+    post = Post.new
+    post.title = Faker::Book.title
+    post.body = Faker::Lorem.sentence
+    post.user_id = user.id
+    post.save
+
+    # if saving a local file
+    # post.banner.attach(io: File.open('app/assets/images/chess.jpg'), filename: 'chess.jpg', content_type: 'image/jpg')
+
+    # if saving an image url
+    num = rand(300..500)
+    post.banner.attach(io: open("https://i.picsum.photos/id/#{num}/900/600.jpg"), filename: "banner-#{num}.jpg", content_type: 'image/jpg')
+    
   end
 end
 
