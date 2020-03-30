@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   def index
     console
     @users = User.all
+    @categories = Category.all
 
     if params[:category].blank?
       @posts = Post.all.order("created_at DESC")

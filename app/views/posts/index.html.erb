@@ -25,6 +25,14 @@
 
     </div>
     <!-- .col-9 -->
+
+    <div class="col-3">
+      <div class="list-group list-group-flush">
+        <% @categories.each do |category| %>
+          <%= link_to category.name, posts_path(category: category.name), class: 'list-group-item list-group-item-action' %>
+        <% end %>
+      </div>
+    </div>
   </div>
   <!-- .row -->
 </main>
