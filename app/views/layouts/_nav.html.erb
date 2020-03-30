@@ -9,10 +9,6 @@
       <li class="nav-item">
         <%= link_to 'My Posts', my_posts_path, class: 'nav-link' %>
       </li>
-      <li class="nav-item">
-        <% category = Category.first %>
-        <%= link_to category.name, posts_path(category: category.name), class: 'nav-link' %>
-      </li>
     </ul>
     <ul class="navbar-nav">
       <li class="nav-item">
