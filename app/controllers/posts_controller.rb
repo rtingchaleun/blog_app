@@ -4,6 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
+    console
     @posts = Post.all
     @users = User.all
   end
@@ -15,11 +16,13 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
    def show
+     console
     @post.update(views: @post.views + 1)
   end
 
   # GET /posts/new
   def new
+    console
     @post = Post.new
   end
 
@@ -76,6 +79,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title, :body, :views, :banner)
+      params.require(:post).permit(:title, :body, :banner, :category_id)
     end
 end

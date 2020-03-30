@@ -1,6 +1,16 @@
-<h1>Editing Category</h1>
+<main class="container my-5 pt-3">
+  <div class="row">
+    <div class="col-9">
 
-<%= render 'form', category: @category %>
+      <h1>Editing Category</h1>
 
-<%= link_to 'Show', @category %> |
-<%= link_to 'Back', categories_path %>
+      <%= render 'form', category: @category %>
+
+      <%= link_to 'Show', @category %> |
+      <%= link_to 'Back', categories_path %>
+
+    </div>
+    <!-- .col-9 -->
+  </div>
+  <!-- .row -->
+</main>
