@@ -1,5 +1,19 @@
+require 'elasticsearch/model'
+
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
+  def search
+    console
+
+    if params[:q].nil?
+      @posts = Post.all.order("created_at DESC")
+    else
+      @posts = Post.where('title LIKE ?', "%" + params[:q] + "%").or(Post.where('body LIKE ?', "%" + params[:q] + "%"))
+    end
+  end
 
   # GET /posts
   # GET /posts.json
@@ -7,12 +21,15 @@ class PostsController < ApplicationController
     console
     @users = User.all
     @categories = Category.all
+    @posts = Post.all.order("created_at DESC")
 
-    if params[:category].blank?
-      @posts = Post.all.order("created_at DESC")
-    else
+    if params[:q].present?
+      @posts = @posts.where('title LIKE ?', "%" + params[:q] + "%").or(@posts.where('body LIKE ?', "%" + params[:q] + "%"))
+    end
+
+    if params[:category].present?
       @category_id = Category.find_by(name: params[:category]).id
-      @posts = Post.where(category_id: @category_id).order("created_at DESC")
+      @posts = @posts.where(category_id: @category_id).order("created_at DESC")
     end
   end
 
@@ -89,3 +106,5 @@ class PostsController < ApplicationController
       params.require(:post).permit(:title, :body, :banner, :category_id)
     end
 end
+
+Post.import

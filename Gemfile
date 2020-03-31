@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.7'
 # For user authentication and admin authorization
 gem 'devise'
 
-# For seeding the database
+# For seeding the database with users, posts, comments, images, etc.
 gem 'faker'
 
 # For processing images
@@ -41,12 +41,16 @@ gem 'image_processing'
 # For displaying data tables nicely in IRB
 gem 'hirb'
 
-# For downloading and saving images from a webpage
-gem 'nokogiri'
-gem 'httparty'
+# For web scraping
+# gem 'nokogiri'
+# gem 'httparty'
 
 # For debugging
 gem 'pry'
+
+# For searching posts
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
