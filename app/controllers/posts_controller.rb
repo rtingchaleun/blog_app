@@ -2,9 +2,10 @@ require 'elasticsearch/model'
 
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_session_params, only: [:index]
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
-  
+
 
   # GET /posts
   # GET /posts.json
@@ -90,6 +91,12 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    # Use callbacks to share common setup or constraints between actions.
+    def set_session_params
+      session[:q] = params[:q]
+      session[:category] = params[:category]
     end
 
     # Only allow a list of trusted parameters through.

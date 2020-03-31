@@ -24,8 +24,9 @@
     <div class="col-9">
       <% if user_signed_in? %>
         <%= render 'comments/form' %>
-      <% end %>
+      <% else %>
         <p><%= link_to 'Log in', new_user_session_path, class: 'btn btn-outline-secondary' %> to post a comment.</p>
+      <% end %>
       <hr>
       <%= render 'posts/comment' %>
     </div>
