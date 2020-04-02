@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light fixed-top bg-white border-bottom">
   <%= link_to 'My Blog App', root_path, class: 'navbar-brand' %>
 
-  <%= form_for(posts_path, method: :get, :html => {class: 'form-inline'}) do |f| %>
+  <%= form_for(posts_path, method: :get, :html => { class: 'form-inline' }) do |form| %>
     <div class="input-group">
       <%= text_field_tag(:q, params[:q], class: 'form-control') %>
       <div class="input-group-append">

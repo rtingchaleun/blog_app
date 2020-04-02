@@ -1,10 +1,10 @@
-require 'elasticsearch/model'
+# require 'elasticsearch/model'
 
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :set_session_params, only: [:index]
-  include Elasticsearch::Model
-  include Elasticsearch::Model::Callbacks
+  # include Elasticsearch::Model
+  # include Elasticsearch::Model::Callbacks
 
 
   # GET /posts
@@ -103,6 +103,11 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title, :body, :banner, :category_id)
     end
+
+    # Only allow json on search action
+    # def force_json
+    #   request.format = :json
+    # end
 end
 
-Post.import
+# Post.import
